@@ -1,0 +1,23 @@
+[package]
+authors = ["Tony Wu <tonywu6@protonmail.com>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+name = "swc-css-fonts-dl"
+version = "0.0.1"
+
+[dependencies]
+anyhow = "1.0.80"
+clap = {version = "4.5.2", features = ["derive", "default"]}
+env_logger = "0.11.3"
+log = "0.4.21"
+relative-path = "1.9.2"
+reqwest = "0.11.24"
+serde = {version = "1.0.197", features = ["derive"]}
+serde_yaml = "0.9.32"
+swc_core = {version = "0.90.17", features = ["common", "css_ast", "css_parser", "css_codegen", "css_visit", "common_tty"]}
+tokio = {version = "1.36.0", features = ["full"]}
+url = "2.5.0"
+
+[dev-dependencies]
+insta = "1.36.1"
+swc_core = {version = "0.90.17", features = ["testing"]}
