@@ -18,12 +18,12 @@ use swc_core::{
         visit::VisitMutWith as _,
     },
 };
+use tokio::{sync::Semaphore, task::JoinSet};
 
 mod options;
 mod visitor;
 
 use options::{CommandLineArgs, DownloaderOptions, SourceLocation};
-use tokio::{sync::Semaphore, task::JoinSet};
 use visitor::{rewrite_remote_fonts, RemoteFont};
 
 async fn run() -> anyhow::Result<()> {
