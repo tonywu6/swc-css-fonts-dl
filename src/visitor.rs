@@ -29,11 +29,11 @@ impl VisitMut for RewriteRemoteFonts<'_> {
         match node.name.as_ident() {
             Some(&Ident { ref value, .. }) if value == "font-face" => {
                 self.state = State::AtFontFace;
-                node.visit_mut_children_with(self);
-                self.state = State::NoOp;
             }
             _ => {}
         }
+        node.visit_mut_children_with(self);
+        self.state = State::NoOp;
     }
 
     fn visit_mut_declaration(&mut self, node: &mut Declaration) {
@@ -45,11 +45,11 @@ impl VisitMut for RewriteRemoteFonts<'_> {
         match node.name.as_ident() {
             Some(&Ident { ref value, .. }) if value == "src" => {
                 self.state = State::SrcDecl;
-                node.visit_mut_children_with(self);
-                self.state = State::AtFontFace;
             }
             _ => {}
         }
+        node.visit_mut_children_with(self);
+        self.state = State::AtFontFace;
     }
 
     fn visit_mut_url_value(&mut self, node: &mut UrlValue) {
@@ -187,6 +187,11 @@ mod tests {
     #[test]
     fn test_default() {
         test_one("tests/fixtures/index.css", None);
+    }
+
+    #[test]
+    fn test_nested_at_rule() {
+        test_one("tests/fixtures/nested-at-rule.css", None);
     }
 
     #[test]
