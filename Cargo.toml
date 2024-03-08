@@ -10,7 +10,7 @@ name = "swc-css-fonts-dl"
 publish = ["crates-io"]
 readme = "README.md"
 repository = "https://github.com/tonywu6/swc-css-fonts-dl"
-version = "0.0.1"
+version = "0.0.2"
 
 [dependencies]
 anyhow = "1.0.80"

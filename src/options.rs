@@ -41,6 +41,7 @@ impl<'de> Deserialize<'de> for SourceLocation {
 }
 
 #[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "kebab-case")]
 pub struct CSSSource {
     pub from: SourceLocation,
     pub into: String,

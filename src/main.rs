@@ -3,7 +3,7 @@ use std::sync::Arc;
 
 use anyhow::Context;
 use clap::Parser;
-use log::info;
+use log::{debug, info};
 use relative_path::RelativePathBuf;
 use swc_core::{
     common::{
@@ -59,9 +59,10 @@ async fn run() -> anyhow::Result<()> {
         let (source_file, base) = match item.from {
             SourceLocation::Remote(src) => {
                 info!("fetching stylesheet from {}", src);
+                debug!("using user agent: {}", item.user_agent);
                 let response = http_client
                     .get(src.clone())
-                    .header("user-agent", item.user_agent)
+                    .header("User-Agent", item.user_agent)
                     .send()
                     .await?;
                 response.error_for_status_ref()?;
