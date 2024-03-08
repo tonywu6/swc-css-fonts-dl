@@ -1,10 +1,13 @@
 [package]
 authors = ["Tony Wu <tonywu6@protonmail.com>"]
 description = "Download remote fonts referenced in stylesheets"
+documentation = "https://docs.rs/swc-css-fonts-dl"
 edition = "2021"
+homepage = "https://github.com/tonywu6/swc-css-fonts-dl"
 keywords = ["swc", "css"]
 license = "MIT OR Apache-2.0"
 name = "swc-css-fonts-dl"
+publish = ["crates.io"]
 readme = "README.md"
 version = "0.0.1"
 
