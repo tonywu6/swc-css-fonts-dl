@@ -1,8 +1,11 @@
 [package]
 authors = ["Tony Wu <tonywu6@protonmail.com>"]
+description = "Download remote fonts referenced in stylesheets"
 edition = "2021"
+keywords = ["swc", "css"]
 license = "MIT OR Apache-2.0"
 name = "swc-css-fonts-dl"
+readme = "README.md"
 version = "0.0.1"
 
 [dependencies]
